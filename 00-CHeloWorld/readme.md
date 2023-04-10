@@ -5,8 +5,8 @@
 ## "Hello, World!" en C
 
 Compilador: 
-* MinGW - Minimalist
-* Verion gcc 12.1.0
+* MinGW - x64
+* Verion gcc 12.2.0
 
 IDE: VisualStudio Code
 
