@@ -1,5 +1,5 @@
 # SSL
-*Repositorio público personal para AED*
+*Repositorio público personal para SSL*
 
 * Sintaxis y semantica de los lenguajes
 * Curso: K2051
