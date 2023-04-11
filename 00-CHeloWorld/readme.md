@@ -7,6 +7,7 @@
 Compilador: 
 * MinGW - x64
 * Verion gcc 12.2.0
+* Version lenguaje que compila c2x
 
 IDE: VisualStudio Code
 
