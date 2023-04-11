@@ -5,7 +5,7 @@
 ## "Hello, World!" en C
 
 Compilador: 
-* MinGW - w64
+* MinGW - x64
 * Verion gcc 12.2.0
 * Version lenguaje que compila c2x
 
