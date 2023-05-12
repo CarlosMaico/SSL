@@ -17,3 +17,35 @@ comando ejecutado : gcc -E hello2.c -o hello2.i
 
 2)Compilacion
 
+comando ejecutado : gcc -S hello3.c -o hello3.s
+resultado: 
+hello3.c: In function 'main':
+hello3.c:5:5: warning: implicit declaration of function 'prontf'; did you mean 'printf'? [-Wimplicit-function-declaration]
+    5 |     prontf("La respuesta es %d\n");
+      |     ^~~~~~
+      |     printf
+
+- Lenguaje ensamblador, al realizar la etapa de compilacion se produce el codigo ensamblador, este codigo se obtuvo por hacer una baja de nivel, con objetivo de ser la entrada para la etapa de ensamblado
+
+3)Vinculacion
+
+codigo ejecutado : gcc hello5.c -o hello5
+$ ./hello5.exe
+La respuesta es 879895472
+- trajo cualquier valor que este precargado en %d?? no se si esta bien
+
+4)Correccion Bug
+
+$ ./hello6.exe
+La respuesta es 42
+
+- se verifica
+
+5)Remocion de Prototipo
+comando ejecutado./hello7.exe
+resultado: La respuesta es 42
+
+- Funcion por que en el proceso de compilacion, en alguna etapa ya hace referencias a librerias???
+
+6)Compilacion Separada: Contratos y Modulos
+
