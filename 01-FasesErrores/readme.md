@@ -6,3 +6,6 @@
 * Compilacion: gcc -S NombreArchivo.c -o NombreArchivo.s
 * Ensamblado: gcc -c NombreArchivo.c -o NombreArchivo.o
 * Vinculacion: gcc NombreArchivo.c -o NombreArchivo
+
+
+1)
