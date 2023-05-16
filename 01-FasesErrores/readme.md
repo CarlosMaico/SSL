@@ -24,6 +24,8 @@ hello3.c:5:5: warning: implicit declaration of function 'prontf'; did you mean '
     5 |     prontf("La respuesta es %d\n");
       |     ^~~~~~
       |     printf
+hello3.c:6:5: error: expected declaration or statement at end of input
+
 
 - Lenguaje ensamblador, al realizar la etapa de compilacion se produce el codigo ensamblador, este codigo se obtuvo por hacer una baja de nivel, con objetivo de ser la entrada para la etapa de ensamblado
 
