@@ -56,11 +56,34 @@ La respuesta es 42
 
 a) se verifica que funciona bien
 
-5)Remocion de Prototipo
+5) Remocion de Prototipo
+gcc hello7.c -o hello7
+hello7.c: In function 'main':
+hello7.c:4:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+    4 |     printf("La respuesta es %d\n", i);
+      |     ^~~~~~
+hello7.c:1:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+  +++ |+#include <stdio.h>
+    1 |
+hello7.c:4:5: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+    4 |     printf("La respuesta es %d\n", i);
+      |     ^~~~~~
+hello7.c:4:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+
+Vemos que genera el ejecutable, por lo que se observa que los prototipos no son necesarios, siempre y cuando se utilicen bien las fucniones
+
 comando ejecutado./hello7.exe
 resultado: La respuesta es 42
 
-- Funcion por que en el proceso de compilacion, en alguna etapa ya hace referencias a librerias???
+b) Funciona por que gcc ya vincula el printf por defecto al utilizarla en nuestro programa. Ya que el hello7.o(que se genera si dejar rastro cuando compilamos y ejecutamos normalmente) que es el codigo assmebler, aca se encuentra la llamada a printf
+
+-i Arrojo warnings de que deberiamos incluir la libreria <stdio.h>
+-ii un prototipo es una declaracion de un funcion, dando detalle de que parametros va a recibir y de que tipo. Estos parametros los puede generar el programador o directamente llamar a la librerias que ya poseen muchas declaraciones
+-iii La declaracion implicita sucede cuando no declaramos una funcion, osea no definimos su prototipo
+-iv la especificacion indica la sintaxis y semantica del lenguaje
+-v las implementaciones se comportan como un compilador que hace real el lenguaje
+-vi una funcion built-in es aquella que ya esta incorporado en el compilador
+-vii Segun el estandar se dice que no existen las declaracion implicitas osea que para que el codigo este bien formado debe haber declaraciones explicitas de funciones aca vemos que no dicen que pasa si NO estan las declaraciones explicitas, ahi es donde se agarra gcc y te permite generar el ejecutable 
 
 6)Compilacion Separada: Contratos y Modulos
 
