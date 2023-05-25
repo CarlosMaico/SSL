@@ -11,13 +11,18 @@
 1)Preprocesador
 
 comando ejecutado : gcc -E hello2.c -o hello2.i
--La primer parte de codigo seria la libreria expandida y en el codigo creado el comentario lo reemplazo por un espacio
-- int printf(const char * restrict s, ...) , esta funcion genera texto con formato bnajo el control del formato s y cualquier argumento adicional. Cada caracter generado se escribe en la secuencia stdout (puntero al objeto que controla el flujo standar de salida), devuelve los caracteres generado o un valor negativo si hay un error en la transmision
-- 4 lineas de coidgo mas
+
+b) La primer parte de codigo seria la libreria expandida recurisvamente los archivos referenciados y en el codigo creado el comentario lo reemplazo por un espacio. Ahorra el trabajo de declarar funciones al programador. 
+
+d) int printf(const char * restrict s, ...) , es una declaracion que acepta un argumento como minimo del tipo puntero a un char, el cual es el comienzo a una cadena la cual no va a poder modificar lo que apunta, este primer parametro es de entrada.
+
+c) No expandio ninguna libreria, simplemente agrego un par de logeo, pero funcionalmente sigue estando igual.
 
 2)Compilacion
 
+a)
 comando ejecutado : gcc -S hello3.c -o hello3.s
+
 resultado: 
 hello3.c: In function 'main':
 hello3.c:5:5: warning: implicit declaration of function 'prontf'; did you mean 'printf'? [-Wimplicit-function-declaration]
@@ -26,22 +31,30 @@ hello3.c:5:5: warning: implicit declaration of function 'prontf'; did you mean '
       |     printf
 hello3.c:6:5: error: expected declaration or statement at end of input
 
+Aca aparecio un error en la etapa de compilacion ya que falta cerrar llaves del main.
 
-- Lenguaje ensamblador, al realizar la etapa de compilacion se produce el codigo ensamblador, este codigo se obtuvo por hacer una baja de nivel, con objetivo de ser la entrada para la etapa de ensamblado
+c) Lenguaje ensamblador, al realizar la etapa de compilacion se produce el codigo ensamblador, este codigo se obtuvo por hacer una baja de nivel, con objetivo de ser la entrada para la etapa de ensamblado. Vemos en este legnuaje ensamblador que hay una llamada a prontf
+
+d) Al momento de ensamblar generamos un archivo .o el cual permite realizar un analisis byte a byte ya que no es mas que un archivo de bytes. cada byte represetna una instruccion al microprocesador.
 
 3)Vinculacion
 
-codigo ejecutado : gcc hello5.c -o hello5
+a)codigo ejecutado : gcc hello4.o
+C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: hello4.o:hello4.c:(.text+0x1f): undefined reference to 'prontf'collect2.exe: error: ld returned 1 exit status
+
+Aca se ve que intento vinvular con la biblioteca estandar y que se intento referenciar a algo que no esta definido que es prontf, por lo tanto es un error de vinculacion
+
+b) codigo ejecutado : gcc hello5.c -o hello5
 $ ./hello5.exe
-La respuesta es 879895472
-- trajo cualquier valor que este precargado en %d?? no se si esta bien
+La respuesta es 291185584
+c) trajo cualquier valor que no es el esperado, es un valor anterior que quedo en el stack que se interpreto como decimal
 
 4)Correccion Bug
 
 $ ./hello6.exe
 La respuesta es 42
 
-- se verifica
+a) se verifica que funciona bien
 
 5)Remocion de Prototipo
 comando ejecutado./hello7.exe
